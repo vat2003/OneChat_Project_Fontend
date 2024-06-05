@@ -8,14 +8,15 @@
     <mat-sidenav-container class="flex-grow-1">
       <mat-sidenav mode="side" opened class="bg-light" style="width: 300px;">
         <mat-nav-list>
-          <mat-list-item *ngFor="let chat of chatList" (click)="selectChat(chat)">
+          <mat-list-item *ngFor="let chat of chatList" (click)="selectChat(chat)" >
             <h3 matLine>{{ chat.name }}</h3>
+            <hr>
           </mat-list-item>
         </mat-nav-list>
       </mat-sidenav>
 
       <mat-sidenav-content class="d-flex flex-column">
-        <div class="messages flex-grow-1 overflow-auto p-3" >
+        <div class="messages flex-grow-1 overflow-auto p-3">
           <div *ngFor="let message of messages" class="message mb-2">
             <mat-card class="chat-content">
               <mat-card-title>{{ message.user }}</mat-card-title>
@@ -28,13 +29,15 @@
           <mat-card-content class="d-flex align-items-center">
             <mat-form-field class="flex-grow-1 mb-0" style="width: 90%">
               <mat-label>Enter your message</mat-label>
-              <input matInput [(ngModel)]="messageText">
+              <!--              <input matInput [(ngModel)]="messageText">-->
+              <textarea matInput [(ngModel)]="messageText"></textarea>
             </mat-form-field>
             <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
 
           </mat-card-content>
         </mat-card>
       </mat-sidenav-content>
+
     </mat-sidenav-container>
   </div>
 </div>

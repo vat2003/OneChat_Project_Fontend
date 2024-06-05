@@ -7,7 +7,7 @@ import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; // Import MatInputModule
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {MatListItem, MatNavList} from "@angular/material/list"; // Import MatButtonModule
+import {MatListItem, MatNavList} from "@angular/material/list";
 
 @Component({
   selector: 'app-chat-layout',
@@ -29,7 +29,7 @@ import {MatListItem, MatNavList} from "@angular/material/list"; // Import MatBut
     MatSidenavContent,
     MatNavList,
     MatListItem,
-    MatSidenav
+    MatSidenav,
     // Thêm MatButtonModule
   ],
   templateUrl: './chat-layout.component.html',
@@ -51,9 +51,10 @@ export class ChatLayoutComponent {
   selectChat(chat: any) {
     // Thay đổi messages để hiển thị tin nhắn của cuộc chat được chọn
     this.messages = [
-      // Các tin nhắn của cuộc chat được chọn
+      {user: 'Người dùng 3', text: 'Chào bạn! 3'}
     ];
   }
+
 
   sendMessage() {
     if (this.messageText.trim()) {
@@ -61,7 +62,6 @@ export class ChatLayoutComponent {
       this.messageText = '';
     }
   }
-
   logout() {
     console.log('Đăng xuất');
   }
